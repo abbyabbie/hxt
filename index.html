@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Auotdesk SketchBook</title>
+	<link rel="shortcut icon" href="image/png1.png">
+	<style>
+		body{
+			margin:0;
+			padding: 0;
+			height: auto;
+			width: 100%;
+		}
+		p{
+			margin: 0;
+			font-size: 20px;
+			line-height: 24px;
+		}
+		h1,h2{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			width: 100%;
+		}
+		a{
+			text-decoration: none;
+			text-shadow: none;
+		}
+		li{
+			list-style: none;
+		}
+		ul{
+			margin: 0;
+			padding:0;
+		}
+		#slider{
+			overflow-x: hidden;
+			white-space: nowrap;
+			height: 100%
+		}
+		#header{
+			z-index: 20;
+			height: 70px;
+			padding: 0 20px;
+			-webkit-box-shadow: 0px 3px 2px 0px rgba(50,50,50,0.23);
+			-moz-box-shadow: 0px 3px 2px 0px rgba(50,50,50,0.23);
+			box-shadow: 0px 3px 2px 0px rgba(50,50,50,0.23);
+			background: #f9f9f9;
+			color: #e55932;
+		}
+		.logo{
+			float: left;
+			width: 166px;
+			height: 47px;
+			margin-top: 10px;
+			background: url(https://cdn.sketchbook.com/assets/sb_logo-4f263d99091233ec4339fa7d7985c671.png);
+			background-size: cover;
+		}
+		#links{
+			margin-left: 62px;
+			margin-top: 25px;
+			float: left;
+			padding: 0;
+			list-style-type: none;
+		}
+		.line{
+			float:left;
+			margin-left: 55px;
+		}
+		li:first-child {
+			margin-left: 0;
+		}
+		#person{
+			float: right;
+			list-style-type: none;
+		}
+		.button1{
+			background-color:#e45737;
+			border-radius: 5px;
+			color:#fff;
+			padding: 10px 10px;
+			-webkit-border-radius: 8px;
+			float: left;
+			margin-left:10px;
+		}
+		.button2{
+			background-color:#e45737;
+			border-radius: 40px;
+			color:#fff;
+			padding: 12px 30px 10px 30px;
+			-webkit-border-radius: 40px;
+			margin-top: 45px;
+			width: 140px;
+			margin-right: 5px;
+			cursor: pointer;
+			display: inline-block;
+			text-align: center;
+		}
+		.button3{
+			background: none;
+			border-radius: 40px;
+			color:#fff;
+			padding: 10px 30px 8px 30px;
+			-webkit-border-radius: 40px;
+			margin-top: 45px;
+			width: 134px;
+			cursor: pointer;
+			display: inline-block;
+			text-align: center;
+			border: 3px solid white;
+			font-weight: 700;
+		}
+		#signin{
+			float: left;
+			margin-top: 10px;
+		}
+		#sidebar{
+			width: 210px;
+			margin-left: -210px;
+			padding-top: 0;
+		}
+		#first{
+			padding: 120px 0;
+			height: 360px;
+			background: url(https://cdn.sketchbook.com/assets/desktop_hero-4623d660fe4d1a3c489ab29dae2d7896.jpg);
+			background-size: cover;
+			background-position: center center;
+			color: #fff;
+		}
+		#container{
+			position: relative;
+			max-width: 960px;
+			height: auto;
+			margin: 0 auto;
+			padding: 0 10px;
+		}
+		#title{
+			font-size: 32px;
+			font-weight: 300;
+			text-transform: uppercase;
+			margin: -5px 0 5px 0;
+		}
+		.htitle{
+			font-size: 50px;
+			margin-bottom: 20px;
+			text-transform: uppercase;
+			margin-top: 0;
+		}
+		#txt1{
+			white-space: normal;
+			width: 410px;
+			float: left;
+		}
+		#second{
+			padding: 120px 0;
+			height: 367px;
+			background: url(https://cdn.sketchbook.com/assets/landing/hero_mobile_bg-ff90ee909037090f43c17b88451846ec.jpg);
+			background-size: cover;
+			background-position: center center;
+			color: #fff;
+		}
+		#txt2{
+			white-space: normal;
+			width: 410px;
+			float: right;
+		}
+		#store-button{
+			margin-top: 45px;
+			white-space: normal;
+			li{
+				margin-right: 25px;
+			}
+		}
+		#third{
+			position: relative;
+			padding: 50px 0;
+			background: white;
+			padding-bottom:0;
+		}
+		.p3{
+			width: 100%;
+			margin: 0 auto;
+			color: #656464;
+			text-align: center;
+		}
+		.ttitle{
+			font-weight: 100;
+			font-size: 36px;
+			margin-bottom: 25px;
+			color: #656464;
+			text-align: center;
+		}
+		#forth{
+			background: #8ec5b2;
+			position: relative;
+			padding: 50px 0;
+			padding-bottom: 0;
+		}
+		#fifth{
+			position: relative;
+			padding: 50px 0;
+			background: white;
+			height: 450px;
+		}
+		#pic-word{
+			width: 30%;
+			float: left;
+			height: auto;
+			padding: 0 10px;
+			white-space: normal;
+			/* -webkit-transition: all 0.5s ease;
+			transition: all 0.5s empty-cells: ;se; */
+		}
+		.fic-art{
+			position: relative;
+			width: 100%;
+			height: auto;
+			font-size: 16px;
+			color: white;
+			white-space: normal;
+		}
+		.overlay p{
+			font-size: 16px;
+			line-height: 20px;
+		}
+		#txt5{
+			margin:0;
+			margin-bottom: 55px;
+			text-align: center;
+			color: #656464;
+		}
+		.ktitle{
+			margin: 0;
+			font-weight: 100;
+			font-size: 36px;
+			margin-bottom: 25px;
+		}
+		.overlay{
+			position: absolute;
+			bottom: 4px;
+			width: 100%;
+			max-height: 150px;
+			background: rgba(65,65,65,0.76);
+			-moz-box-shadow: 2px 3px 1px 0px rgba(50,50,50,0.16);
+			-webkit-box-shadow: 2px 3px 1px 0px rgba(50,50,50,0.16);
+			-ms-box-shadow: 2px 3px 1px 0px rgba(50,50,50,0.16);
+			box-shadow: 2px 3px 1px 0px rgba(50,50,50,0.16);
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			transition: all 0.5s ease;
+			color:white;
+			font-size: 16px;
+			font-family: "proxima-nova", sans-serif;
+		}
+		#category{
+			display: inline-block;
+			position: relative;
+			top: -36px;
+			width: auto;
+			padding: 10px;
+			background: rgba(207,69,46,0.76);
+			text-transform: uppercase;
+			font-size: 13px;
+		}
+		.ytitle{
+			margin: 0 0 10px 0;
+			font-size: 24px;
+			font-family: "proxima-nova-condensed";
+			font-weight: 700;
+		}
+		#sixth{
+			height: 340px;
+			background: #f7f7f7;
+		}
+		#section{
+			position: relative;
+			padding: 50px 0;
+			background: white;
+			height: 240px;
+		}
+		.ztitle{
+			margin-bottom: 10px;
+			font-family: "proxima-nova-condensed";
+			font-size: 24px;
+			font-weight: 600;
+			letter-spacing: 2px;
+			text-align: left;
+			color: #e55932;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+		#pic-word2{
+			width: 25%;
+			float: left;
+			height: auto;
+			padding: 0 40px;
+			white-space: normal;
+		}
+		#txt6{
+			text-decoration: none;
+		}
+		#icon{
+			width: 55%;
+			height: auto;
+			margin-bottom: 35px;
+			margin-left: 35px;
+		}
+		#sixth p{
+			margin-top: 0px;
+			font-size: 17px;
+			color: #585858;
+		}
+		.txt7{
+			margin: -20px 0 20px 0;
+			padding: 0 10px;
+			height: auto;
+		}
+		#footer{
+			position: relative;
+			width: 100%;
+			height: auto;
+			padding: 50px 0;
+			background: #e55932;
+			color: white;
+			font-size: 17px;
+			color: white;
+			font-size: 17px;
+		}
+		#row{
+			margin: 0;
+			height: 90px;
+		}
+		#chn{
+			margin-top: 25px;
+		}
+		#footer img{
+			width:130px;
+		}
+		#footer a{
+			color: white;
+			font-family: "proxima-nova-condensed";
+		}
+		#pic-word3{
+			width: 30%;
+			float: left;
+			height: auto;
+			padding: 0 10px;
+			-webkit-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+		}
+		#copyright{
+			display: block;
+			width: 100%;
+			margin-top: 100px;
+			text-align: center;
+		}
+		#copyright a,#copyright p{
+			font-size: 14px;
+		}
+		#footer-links{
+			width: 60%;
+			float: left;
+			height: auto;
+			padding: 0 10px;
+			-webkit-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+		}
+		#footer-links ul{
+			float: right;
+			margin: 0;
+			padding: 0 30px;
+		}
+		#footer-links ul:first-child {
+			padding-right: 0px;
+		}
+		#footer-links li{
+			margin-bottom: 10px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+	</style>
+</head>
+<body>
+	<div id="slider">
+		<div id="header">
+			<div id="clear">
+				<a class="logo" href="https://www.sketchbook.com/"></a>
+				<ul id="links">
+					<li class="line">产品</li>
+					<li class="line"><a href="https://support.sketchbook.com/hc/en-us/categories/200184114" style="text-decoration:none;color:#DC143C">教程</a></li>
+					<li class="line"><a href="http://blog.sketchbook.com/" style="text-decoration:none;color:#DC143C">博客</a></li>
+					<li class="line"><a href="https://www.sketchbook.com/memberships" style="text-decoration:none;color:#DC143C">会员</a></li>
+				</ul>
+				<div>
+					<ul id="person">
+						<li id="signin"><a href="https://accounts.autodesk.com/SignIn" style="text-decoration:none;color:#DC143C">登录</a></li>
+						<li class="button1"><a href="https://accounts.autodesk.com/register" style="text-decoration:none;color:#fff">注册</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="sidebar"></div>
+		<div id="main">
+			<div id="first">
+				<div id="container">
+					<div id="txt1">
+						<div id="title">
+							<span>Sketchbook</span>
+						</div>
+						<h1 class="htitle">SketchBook Pro</h1>
+						<p>提供您需要的功能，搭配您喜爱的简洁流程。此款令人惊叹的新工具给予您力量和自由创作前所未有的艺术。立即探索全新的 SketchBook Pro。</p>
+						<a class="button2" href="https://www.sketchbook.com/desktop#buy-membership">购买</a>
+						<a class="button3" href="https://www.sketchbook.com/desktop">了解更多..</a>
+					</div>
+				</div>
+			</div>
+			<div id="second">
+				<div id="container">
+					<div id="txt2">
+						<div id="title">
+							<span>Sketchbook</span>
+						</div>
+						<h2 class="htitle">SketchBook Pro</h1>
+						<p>SketchBook Mobile 与对应的台式计算机产品基于相同的绘图引擎构建，具有两全其美的优势，可通过数字工具的功能和自定义实现直观、自然的绘图体验。</p>
+						<div id="store-button">
+							<ul style="list-style-type: none;margin: 0;padding: 0">
+								<li style="display: inline;margin-right: 25px"><a href="https://itunes.apple.com/us/app/autodesk-sketchbook-mobile/id883738213?mt=8&ign-mpt=uo%3D4"></a><img src="image/png3.png" style="width: 165px;height: 49px"></li>
+								<li style="display: inline"><a href="https://play.google.com/store/apps/details?id=com.adsk.sketchbook"><img src="image/png4.png" style="width: 165px;height: 49px"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="third">
+				<div id="container">
+					<div id="txt3">
+						<h2 class="ttitle">拥有任何技术级别的艺术家都会对 SketchBook Pro 爱不释手</h2>
+						<p class="p3">无论您的背景是什么，SketchBook 对于初学者来说都很容易上手，并且为专业人员提供强大的功能。</p>
+					</div>
+					<img src="image/jpg1.jpg" width="940px" height="435px">
+				</div>
+			</div>
+			<div id="forth">
+				<div id="container">
+					<div id="txt4">
+						<h2 class="ttitle" style=" color: #fff">在您最爱的设备上享受 SketchBook 带来的自然绘画体验。</h2>
+						<p class="p3" style=" color: #fff">在 Windows®、Mac®、iOS 和 Android 上可使用 SketchBook，因此当灵感来敲门时，您可以尽情在任何设备上捕捉灵感。</p>
+					</div>
+					<img src="image/jpg2.jpg" width="846px" height="306px">
+				</div>
+			</div>
+			<div id="fifth">
+				<div id="container">
+					<div id="txt5">
+						<h2 class="ktitle">新特性</h2>
+					</div>
+					<div id="pic-word">
+						<div class="fic-art">
+							<a href="https://support.sketchbook.com/hc/en-us/articles/202393884-Perspective-Tool-Tutorial">
+								<img src="image/jpg3.jpg" width="100%">
+								<div class="overlay">
+									<div id="category">Tutorial</div>
+									<div class="txt7">
+										<h2 class="ytitle">Perspective Tool Tutorial</h2>
+										<p>Learn how to use new perspective tools to build a cityscape sketch in 3-point perspective...</p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div id="pic-word">
+						<div class="fic-art">
+							<a href="https://support.sketchbook.com/hc/en-us/articles/202681290-Flipbook-in-the-all-new-SketchBook-Pro">
+								<img src="image/jpg4.jpg" width="100%">
+								<div class="overlay">
+									<div id="category">Tutorial</div>
+									<div class="txt7">
+										<h2 class="ytitle">Flipbook Animation</h2>
+										<p>Emmy award-winning animator Mike Milo teaches how to use the new SketchBook timeline tool to animate...</p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div id="pic-word">
+						<div class="fic-art">
+							<a href="https://support.sketchbook.com/hc/en-us/articles/202680590-Perspective-Guides-in-SketchBook-Pro-2015">
+								<img src="image/jpg5.jpg" width="100%">
+								<div class="overlay">
+									<div id="category">Tutorial</div>
+									<div class="txt7">
+										<h2 class="ytitle">Perspective Guides</h2>
+										<p>Concept designer Scott Robertson walks through new Perspective Guides for quick and precise layouts...</p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="sixth">
+				<div id="section">
+					<div id="container">
+						<div id="pic-word2">
+							<a href="https://support.sketchbook.com/">
+								<div id="icon">
+									<img src="image/png5.png">
+								</div>
+								<div id="txt6">
+									<h2 class="ztitle">支持</h2>
+									<p>是否需要帮助？搜索我们的知识库可获得您所需的所有答案。</p>
+								</div>
+							</a>
+						</div>
+						<div id="pic-word2">
+							<a href="https://support.sketchbook.com/hc/en-us/categories/200184114">
+								<div id="icon">
+									<img src="image/png6.png">
+								</div>
+								<div id="txt6">
+									<h2 class="ztitle">教程</h2>
+									<p>获取灵感并了解如何创作令人惊叹的艺术作品。</p>
+								</div>
+							</a>
+						</div>
+						<div id="pic-word2">
+							<a href="http://blog.sketchbook.com/documentation">
+								<div id="icon">
+									<img src="image/png7.png">
+								</div>
+								<div id="txt6">
+									<h2 class="ztitle">文档</h2>
+									<p>下载适用于每个平台的 SketchBook 文档。</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="container">
+					<div id="row">
+						<div id="pic-word3">
+							<ul>
+								<li>
+									<a href="http://www.autodesk.com/"><img src="image/png8.png"></a>
+								</li>
+								<li id="chn"> 语言 : <strong>中文（简体)</strong></li>
+							</ul>
+						</div>
+						<div id="footer-links">
+							<ul>
+								<li><a href="http://blog.sketchbook.com/"> 博客</a></li>
+								<li><a href="https://support.sketchbook.com/"> 支持</a></li>
+								<li><a href=""http://blog.sketchbook.com/documentation> 文档</a></li>
+							</ul>
+							<ul>
+								<li><a href="https://www.sketchbook.com/desktop"> SketchBook <strong>Desktop</strong></a></li>
+								<li><a href="https://www.sketchbook.com/mobile"> SketchBook <strong>Mobile</strong></a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="copyright">
+						<p> © 2014 Autodesk, Inc. 保留所有权利。</p>
+						<a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=17752585">服务条款 |</a>
+                		<a href="http://usa.autodesk.com/company/legal-notices-trademarks">法律声明和商标 |</a>
+                		<a href="http://usa.autodesk.com/privacy/">
+                  隐私政策
+                </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
